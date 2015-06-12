@@ -8,7 +8,7 @@ namespace Code4Fun
     public static class Code4Fun
     {
         public static T GetNthElementFromRightInSinglePass<T>(IEnumerable<T> enumerable, int index)
-        {
+        {            
             var ringBuffer = new T[index];
 
             var counter = 0;

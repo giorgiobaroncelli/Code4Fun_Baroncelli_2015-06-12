@@ -10,7 +10,7 @@ namespace Code4Fun
     public class NthElementFromRightInSinglePassTest
     {
         [Fact]
-        public void GetNthElementFromRightInSinglePass()
+        public void ShouldSuccess()
         {
             var list = new string[] { "A", "B", "C", "D", "E", "F", "G", "H" };
             Assert.Equal("H", Code4Fun.GetNthElementFromRightInSinglePass(list, 1));
@@ -21,6 +21,15 @@ namespace Code4Fun
             Assert.Equal("C", Code4Fun.GetNthElementFromRightInSinglePass(list, 6));
             Assert.Equal("B", Code4Fun.GetNthElementFromRightInSinglePass(list, 7));
             Assert.Equal("A", Code4Fun.GetNthElementFromRightInSinglePass(list, 8));
+        }
+
+        [Fact]
+        public void ShouldThrownArgumentOutOfRangeExceptionIfNthElementIsGreaterThanArraySize()
+        {
+            Assert.Throws(typeof(ArgumentOutOfRangeException), () =>
+            {
+                Code4Fun.GetNthElementFromRightInSinglePass(new string[1], 2);
+            });
         }
     }
 }
