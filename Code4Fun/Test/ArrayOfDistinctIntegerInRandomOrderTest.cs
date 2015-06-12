@@ -16,7 +16,7 @@ namespace Code4Fun
         public ArrayOfDistinctIntegerInRandomOrderTest()
         {
             this.buffer =
-              Exercises.GetArrayOfDistinctIntegerInRandomOrder(bufferSize);
+              Code4Fun.GetArrayOfDistinctIntegerInRandomOrder(bufferSize);
         }
 
         [Fact]
