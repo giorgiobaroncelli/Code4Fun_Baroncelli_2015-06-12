@@ -7,7 +7,7 @@ using Xunit;
 
 namespace Code4Fun
 {
-    public class NthElementFromRightInSinglePassTest
+    public class GetNthElementFromRightInSinglePassTest
     {
         [Fact]
         public void ShouldSuccess()
@@ -29,6 +29,15 @@ namespace Code4Fun
             Assert.Throws(typeof(ArgumentOutOfRangeException), () =>
             {
                 Code4Fun.GetNthElementFromRightInSinglePass(new string[1], 2);
+            });
+        }
+
+        [Fact]
+        public void ShouldThrownArgumentOutOfRangeExceptionIfNthElementIsLessThanOne()
+        {
+            Assert.Throws(typeof(ArgumentOutOfRangeException), () =>
+            {
+                Code4Fun.GetNthElementFromRightInSinglePass(new string[1], -1);
             });
         }
     }

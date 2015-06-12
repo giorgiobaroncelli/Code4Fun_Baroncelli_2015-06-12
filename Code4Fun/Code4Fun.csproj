@@ -58,8 +58,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Test\NthElementFromRightInSinglePassTest.cs" />
-    <Compile Include="Test\ArrayOfDistinctIntegerInRandomOrderTest.cs" />
+    <Compile Include="Test\GetNthElementFromRightInSinglePassTest.cs" />
+    <Compile Include="Test\CreateArrayOfDistinctIntegerInRandomOrderTest.cs" />
     <Compile Include="Code4Fun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

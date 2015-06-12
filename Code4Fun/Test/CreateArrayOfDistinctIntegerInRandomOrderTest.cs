@@ -7,16 +7,16 @@ using Xunit;
 
 namespace Code4Fun
 {
-    public class ArrayOfDistinctIntegerInRandomOrderTest
+    public class CreateArrayOfDistinctIntegerInRandomOrderTest
     {
         private Int64 bufferSize = 100L;
 
         private Int64[] buffer ;
 
-        public ArrayOfDistinctIntegerInRandomOrderTest()
+        public CreateArrayOfDistinctIntegerInRandomOrderTest()
         {
             this.buffer =
-              Code4Fun.GetArrayOfDistinctIntegerInRandomOrder(bufferSize);
+              Code4Fun.CreateArrayOfDistinctIntegerInRandomOrder(bufferSize);
         }
 
         [Fact]

@@ -25,7 +25,7 @@ namespace Code4Fun
             return ringBuffer[counter % index];
         }
 
-        public static Int64[] GetArrayOfDistinctIntegerInRandomOrder(Int64 size)
+        public static Int64[] CreateArrayOfDistinctIntegerInRandomOrder(Int64 size)
         {
             var arrayOfDistinctIntegerInRandomOrder = new Int64[size];
             var arrayOfRandomDouble = new double[size];
