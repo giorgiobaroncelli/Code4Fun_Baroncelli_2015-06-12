@@ -23,6 +23,19 @@ namespace Code4Fun
         public static Int64[] GetArrayOfDistinctIntegerInRandomOrder(Int64 size)
         {
             var arrayOfDistinctIntegerInRandomOrder = new Int64[size];
+            var arrayOfRandomDouble = new double[size];
+
+            var random = new Random();
+
+            for (var i = 0; i < size;i++ )
+            {
+                arrayOfDistinctIntegerInRandomOrder[i] = i + 1;
+
+                arrayOfRandomDouble[i] = random.NextDouble();
+            }
+
+            Array.Sort(arrayOfRandomDouble, arrayOfDistinctIntegerInRandomOrder);
+              
             return arrayOfDistinctIntegerInRandomOrder;
         }
     }
