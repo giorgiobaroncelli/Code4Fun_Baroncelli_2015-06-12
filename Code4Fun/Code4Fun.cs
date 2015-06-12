@@ -9,7 +9,15 @@ namespace Code4Fun
     {
         public static T GetNthElementFromRightInSinglePass<T>(IEnumerable<T> enumerable, int index)
         {
-            return default(T);
+            var ringBuffer = new T[index];
+
+            var counter = 0;
+            foreach (var element in enumerable)
+            {
+                ringBuffer[counter++ % index] = element;
+            }
+
+            return ringBuffer[counter % index];
         }
 
         public static Int64[] GetArrayOfDistinctIntegerInRandomOrder(Int64 size)
