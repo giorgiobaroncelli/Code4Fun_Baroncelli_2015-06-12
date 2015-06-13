@@ -17,7 +17,7 @@ namespace ConsoleTest
                     var sw = new System.Diagnostics.Stopwatch();
                     sw.Start();
 
-                    var size = 10000000;
+                    var size = 1000;
                     //for(var j=0;j<i;j++)
                     //{
                     //    size = size * 10; 
@@ -27,8 +27,8 @@ namespace ConsoleTest
                 
                     sw.Stop();
 
-                    Console.WriteLine(size + ": " + sw.ElapsedMilliseconds);
-                    Console.WriteLine();
+                    //Console.WriteLine(size + ": " + sw.ElapsedMilliseconds);
+                    //Console.WriteLine();
 
                     //sw.Start();
 
@@ -42,10 +42,10 @@ namespace ConsoleTest
 
                 //}
 
-                //foreach (var x in array)
-                //{
-                //    Console.Write(x + " ");
-                //}
+                    foreach (var x in array)
+                    {
+                        Console.Write(x + " ");
+                    }
 
                 Console.WriteLine();
                 Console.ReadLine();
