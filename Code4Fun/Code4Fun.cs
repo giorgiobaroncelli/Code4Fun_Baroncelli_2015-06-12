@@ -11,12 +11,7 @@ namespace Code4Fun
         {
             if (index < 1)
             {
-                throw new ArgumentOutOfRangeException("Index max be greater than one");
-            }
-
-            if (index > enumerable.Count())
-            {
-                throw new ArgumentOutOfRangeException("Index max be less than size of enumerable");
+                throw new ArgumentOutOfRangeException("Index must be greater than one");
             }
 
             var ringBuffer = new T[index];
@@ -27,25 +22,39 @@ namespace Code4Fun
                 ringBuffer[counter++ % index] = element;
             }
 
+            if (index > counter)
+            {
+                throw new ArgumentOutOfRangeException("Index must be less than size of enumerable");
+            }
+
             return ringBuffer[counter % index];
         }
 
-        public static Int64[] CreateArrayOfDistinctIntegerInRandomOrder(Int64 size)
+        public static Int32[] CreateArrayOfDistinctIntegerInRandomOrder(Int32 size)
         {
-            var arrayOfDistinctIntegerInRandomOrder = new Int64[size];
-            var arrayOfRandomDouble = new double[size];
-
-            var random = new Random();
-
-            for (var i = 0; i < size;i++ )
+            if (size < 2)
             {
-                arrayOfDistinctIntegerInRandomOrder[i] = i + 1;
-
-                arrayOfRandomDouble[i] = random.NextDouble();
+                throw new ArgumentOutOfRangeException("Size must be greater than one");
+            }
+            
+            var sortedListOfInteger = new List<int>(size);
+            for (var n = 1; n <= size; n++ )
+            {
+                sortedListOfInteger.Add(n);
             }
 
-            Array.Sort(arrayOfRandomDouble, arrayOfDistinctIntegerInRandomOrder);
-              
+            var arrayOfDistinctIntegerInRandomOrder = new Int32[size];
+            var random = new Random();
+
+            for (var n = 0; n < size; n++)
+            {
+                var sortedListOfIntegerRandomIndex = random.Next(sortedListOfInteger.Count);
+
+                arrayOfDistinctIntegerInRandomOrder[n] = sortedListOfInteger[sortedListOfIntegerRandomIndex];
+
+                sortedListOfInteger.RemoveAt(sortedListOfIntegerRandomIndex);
+            }
+
             return arrayOfDistinctIntegerInRandomOrder;
         }
     }

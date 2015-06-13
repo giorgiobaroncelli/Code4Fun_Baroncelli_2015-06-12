@@ -10,7 +10,7 @@ namespace Code4Fun
     public class GetNthElementFromRightInSinglePassTest
     {      
         [Fact]
-        public void ShouldThrownArgumentOutOfRangeExceptionIfNthElementIsGreaterThanArraySize()
+        public void ShouldThrownExceptionIfNthElementIsGreaterThanArraySize()
         {
             Assert.Throws(typeof(ArgumentOutOfRangeException), () =>
             {
@@ -19,7 +19,7 @@ namespace Code4Fun
         }
 
         [Fact]
-        public void ShouldThrownArgumentOutOfRangeExceptionIfNthElementIsLessThanOne()
+        public void ShouldThrownExceptionIfNthElementIsLessThanOne()
         {
             Assert.Throws(typeof(ArgumentOutOfRangeException), () =>
             {

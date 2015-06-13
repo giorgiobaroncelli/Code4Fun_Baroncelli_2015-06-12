@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,38 +10,50 @@ namespace Code4Fun
 {
     public class CreateArrayOfDistinctIntegerInRandomOrderTest
     {
-        private Int64 bufferSize = 100L;
+        private const Int32 ARRAY_SIZE = 10000;
 
-        private Int64[] buffer ;
+        private readonly Int32[] array;
 
         public CreateArrayOfDistinctIntegerInRandomOrderTest()
         {
-            this.buffer =
-              Code4Fun.CreateArrayOfDistinctIntegerInRandomOrder(bufferSize);
+            this.array = Code4Fun.CreateArrayOfDistinctIntegerInRandomOrder(
+                CreateArrayOfDistinctIntegerInRandomOrderTest.ARRAY_SIZE);
+        }
+
+        [Fact]
+        public void ShouldThrownExceptionIfNthElementIsNotGreaterThanOne()
+        {
+            Assert.Throws(typeof(ArgumentOutOfRangeException), () =>
+            {
+                Code4Fun.CreateArrayOfDistinctIntegerInRandomOrder(1);
+            });
         }
 
         [Fact]
         public void ShouldLessThanOneNotExists()
         {
-           Assert.Equal(1, this.buffer.Min());
+            Assert.Equal(1, this.array.Min());
         }
 
         [Fact]
         public void ShouldGreaterThanSizeNotExists()
         {
-            Assert.Equal(bufferSize, this.buffer.Max());
+            Assert.Equal
+            (
+                CreateArrayOfDistinctIntegerInRandomOrderTest.ARRAY_SIZE, 
+                this.array.Max()
+            );
         }
-
 
         [Fact]
         public void ShouldAllDistinct()
         {
-            Assert.True(this.AllDistinct(this.buffer));
+            Assert.True(this.IsAllDistinct(this.array));
         }
 
-        private bool AllDistinct(Int64[] buffer)
+        private bool IsAllDistinct(Int32[] array)
         {
-            var orderedBuffer = buffer.OrderBy(b=>b).ToArray();
+            var orderedBuffer = array.OrderBy(b=>b).ToArray();
 
             for (var i = 0; i < orderedBuffer.Length - 1; i++)
             {
@@ -49,6 +62,5 @@ namespace Code4Fun
 
             return true;
         }
-
     }
 }
