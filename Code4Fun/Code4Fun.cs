@@ -36,7 +36,9 @@ namespace Code4Fun
             {
                 throw new ArgumentOutOfRangeException("Size must be greater than one");
             }
-            
+
+            var random = new Random();
+
             var sortedListOfInteger = new List<int>(size);
             for (var n = 1; n <= size; n++ )
             {
@@ -44,15 +46,19 @@ namespace Code4Fun
             }
 
             var arrayOfDistinctIntegerInRandomOrder = new Int32[size];
-            var random = new Random();
 
             for (var n = 0; n < size; n++)
             {
-                var sortedListOfIntegerRandomIndex = random.Next(sortedListOfInteger.Count);
+                var sortedListOfIntegerRandomIndex = 
+                    random.Next(sortedListOfInteger.Count);
 
-                arrayOfDistinctIntegerInRandomOrder[n] = sortedListOfInteger[sortedListOfIntegerRandomIndex];
+                arrayOfDistinctIntegerInRandomOrder[n] = 
+                    sortedListOfInteger[sortedListOfIntegerRandomIndex];
 
-                sortedListOfInteger.RemoveAt(sortedListOfIntegerRandomIndex);
+                sortedListOfInteger[sortedListOfIntegerRandomIndex] =
+                   sortedListOfInteger[sortedListOfInteger.Count - 1];
+
+                sortedListOfInteger.RemoveAt(sortedListOfInteger.Count - 1);
             }
 
             return arrayOfDistinctIntegerInRandomOrder;
