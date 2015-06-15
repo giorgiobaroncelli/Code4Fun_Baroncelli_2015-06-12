@@ -17,7 +17,7 @@ namespace ConsoleTest
                     var sw = new System.Diagnostics.Stopwatch();
                     sw.Start();
 
-                    var size = 1000;
+                    var size = 100;
                     //for(var j=0;j<i;j++)
                     //{
                     //    size = size * 10; 

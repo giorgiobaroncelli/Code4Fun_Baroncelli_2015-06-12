@@ -10,15 +10,23 @@ namespace Code4Fun
 {
     public class CreateArrayOfDistinctIntegerInRandomOrderTest
     {
-        private const Int32 ARRAY_SIZE = 10000;
+        private const Int32 ARRAY_SIZE = 1000000;
 
-        private readonly List<int> listOfDistinctIntegerInRandomOrder;
+        private readonly List<Int32> listOfDistinctIntegerInRandomOrder;
 
         public CreateArrayOfDistinctIntegerInRandomOrderTest()
         {
             this.listOfDistinctIntegerInRandomOrder = 
                 Code4Fun.CreateArrayOfDistinctIntegerInRandomOrder(
                     CreateArrayOfDistinctIntegerInRandomOrderTest.ARRAY_SIZE).ToList();
+
+            using (var sw = new System.IO.StreamWriter("xxx.csv"))
+            {
+                foreach(var x in this.listOfDistinctIntegerInRandomOrder)
+                {
+                    sw.WriteLine(x);
+                }
+            }
         }
 
         [Fact]
@@ -53,7 +61,7 @@ namespace Code4Fun
         [Fact]
         public void ShouldAllDistinct()
         {
-            var diffChecker = new HashSet<int>();
+            var diffChecker = new HashSet<Int32>();
 
             Assert.True
             (
